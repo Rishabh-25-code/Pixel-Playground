@@ -22,6 +22,7 @@ const CreatePost = () => {
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
     setForm({ ...form, prompt: randomPrompt });
+    
   };
 
   const generateImage = async () => {
@@ -80,7 +81,7 @@ const CreatePost = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
+        <h1 className="font-extrabold text-white text-[32px]">Create</h1>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Generate an imaginative image through DALL-E AI and share it with the community</p>
       </div>
 
@@ -99,14 +100,14 @@ const CreatePost = () => {
             labelName="Prompt"
             type="text"
             name="prompt"
-            placeholder="An Impressionist oil painting of sunflowers in a purple vase…"
+            placeholder="A garden of giant, luminescent mushrooms in the middle..."
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-black focus:border-black w-64 p-3 h-64 flex justify-center items-center">
             { form.photo ? (
               <img
                 src={form.photo}
@@ -133,7 +134,8 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            // className=" text-white bg-gray-600 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="px-5 py-2.5 bg-black text-[#666e75] text-lg font-medium hover:scale-105 transition-all delay-75 rounded-xl ease-in hover:bg-gray-100"
           >
             {generatingImg ? 'Generating...' : 'Generate'}
           </button>
@@ -143,7 +145,8 @@ const CreatePost = () => {
           <p className="mt-2 text-[#666e75] text-[14px]">** Once you have created the image you want, you can share it with others in the community **</p>
           <button
             type="submit"
-            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            // className="mt-3 text-[#666e75] bg-black font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="mt-3 text-[#666e75] bg-black font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:scale-105 transition-all delay-75 ease-in hover:bg-gray-100"
           >
             {loading ? 'Sharing...' : 'Share with the Community'}
           </button>
